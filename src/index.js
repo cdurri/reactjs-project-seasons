@@ -22,9 +22,7 @@ class App extends React.Component {
     );
   }
 
-  // React says we have to define render() {}
-  // this just returns JSX
-  render() {
+  renderContent() {
     // conditional rendering
     if(this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>
@@ -35,6 +33,16 @@ class App extends React.Component {
     }
 
     return <Spinner message="Waiting on location request to be loaded..."/>
+  }
+
+  // React says we have to define render() {}
+  // this just returns JSX
+  render() {
+    return (
+      <div className="border red">
+        {this.renderContent()}
+      </div>
+    );
   }
 }
 
