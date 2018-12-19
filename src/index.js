@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 // App subclasses React.Component, which gives App access to all of React.Component methods
 class App extends React.Component {
@@ -33,7 +34,7 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat} />
     }
 
-    return <div>Loading...</div>
+    return <Spinner message="Waiting on location request to be loaded..."/>
   }
 }
 
