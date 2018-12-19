@@ -1,12 +1,13 @@
+import './SeasonDisplay.css';
 import React from 'react';
 
 const seasonConfig = {
   summer: {
-    text: "Let's hit the beach",
+    text: "Let's hit the beach!",
     iconName: 'sun'
   },
   winter: {
-    text: 'Burr, it is chilly',
+    text: 'Burr, it is chilly!',
     iconName: 'snowflake'
   }
 }
@@ -23,10 +24,11 @@ const SeasonDisplay = (props) => {
   const season = getSeason(props.lat, new Date().getMonth());
   // destructuring text and iconName out of seasonConfig
   const { text, iconName } = seasonConfig[season];
-  return <div>
-          <i className={`${iconName} icon`} />
+  // pattern - make the root element class the same name as the component name ie. SeasonDisplay
+  return <div className={`season-display ${season}`}>
+          <i className={`icon-left massive ${iconName} icon`} />
           <h1>{text}</h1>
-          <i className={`${iconName} icon`} />
+          <i className={`icon-right massive ${iconName} icon`} />
          </div>;
 };
 
